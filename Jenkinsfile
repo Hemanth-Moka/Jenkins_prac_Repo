@@ -26,11 +26,11 @@ pipeline {
             }
         }
 
-        // ===== BACKEND BUILD (Skip Tests) =====
+        // ===== BACKEND BUILD =====
         stage('Build Backend') {
             steps {
                 dir('Jenkins-Backend') {
-                    bat 'mvn clean package -DskipTests'
+                    bat 'mvn clean package'
                 }
             }
         }
