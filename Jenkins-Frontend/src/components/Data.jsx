@@ -129,9 +129,9 @@ const Data = () => {
 
       {/* Fetch by ID */}
      <div className="fetch-section">
-  <h3>Get Data By ID</h3>
+  {/* <h3>Get Data By ID</h3> */}
   <div className="fetch-controls">
-    <input
+    {/* <input
       type="number"
       value={idToFetch}
       onChange={(e) => setIdToFetch(e.target.value)}
@@ -139,7 +139,7 @@ const Data = () => {
     />
     <button className="btn-basic" onClick={getDataById}>
       Fetch
-    </button>
+    </button> */}
   </div>
 </div>
 
