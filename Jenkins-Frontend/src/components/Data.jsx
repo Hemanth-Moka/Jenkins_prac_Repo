@@ -21,7 +21,7 @@ const Data = () => {
     fetchAllData();
   }, []);
 
-
+  // ✅ Fetch all data
   const fetchAllData = async () => {
     try {
       const res = await axios.get(`${baseUrl}/all`);
@@ -31,12 +31,12 @@ const Data = () => {
     }
   };
 
-
+  // ✅ Handle form change
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-
+  // ✅ Add data
   const addData = async () => {
     try {
       await axios.post(`${baseUrl}/add`, data);
@@ -48,7 +48,7 @@ const Data = () => {
     }
   };
 
-
+  // ✅ Delete data
   const deleteData = async (id) => {
     try {
       const res = await axios.delete(`${baseUrl}/delete/${id}`);
@@ -59,7 +59,7 @@ const Data = () => {
     }
   };
 
- 
+  // ✅ Get data by ID
   const getDataById = async () => {
     try {
       const res = await axios.get(`${baseUrl}/get/${idToFetch}`);
@@ -87,7 +87,7 @@ const Data = () => {
         </div>
       )}
 
-      <h2>JENKINS PRACTICE PROJECT</h2>
+      <h2>Data Manager</h2>
 
       {/* Form */}
       <div>
@@ -128,19 +128,26 @@ const Data = () => {
       </div>
 
       {/* Fetch by ID */}
-     <div className="fetch-section">
-  {/* <h3>Get Data By ID</h3> */}
+      <div>
+  <h3>Get Data By ID</h3>
   <div className="fetch-controls">
-    {/* <input
+    <input
       type="number"
       value={idToFetch}
       onChange={(e) => setIdToFetch(e.target.value)}
       placeholder="Enter ID"
     />
-    <button className="btn-basic" onClick={getDataById}>
+    <button className="btn-blue" onClick={getDataById}>
       Fetch
-    </button> */}
+    </button>
   </div>
+
+  {fetchedData && (
+    <div>
+      <h4>Data Found:</h4>
+      <pre>{JSON.stringify(fetchedData, null, 2)}</pre>
+    </div>
+  )}
 </div>
 
       {/* All data */}
